@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Document</title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Sign Up</h1>
-    <% if (typeof(message) !== undefined) { %>
-        <p style='color: red; font-weight: bold'><%= message %></p>
+    <h1>Sign In</h1>
+    <% if (message && typeof(message) !== undefined) { %> 
+        <p style="color: red;font-weight: bold"><%= message %> </p>
     <% } %>
-    <form action="/sign-up" method="POST">
-
+    <form action="/sign-in" method="POST">
         <label for="username">Username: </label>
         <input type="text" id="username" name="username" placeholder="JohnDoe" required>
 
         <label for="password">Password: </label>
         <input type="password" id="password" name="password" placeholder="Enter Password" required>
-
-        <label for="confirmPassword">Confirm Password: </label>
-        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Enter Password" required>
 
         <button type="submit">SUBMIT</button>
     </form>
