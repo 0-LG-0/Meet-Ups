@@ -2,11 +2,7 @@ const mongoose = require('mongoose')
 const { events } = require('./user')
 
 const eventSchema = new mongoose.Schema({
-    author: {
-        type: String,
-        required: true,
-        guestView: Boolean,
-    },
+    author: String,
     name: {
         type: String,
         required: true,
@@ -21,7 +17,7 @@ const eventSchema = new mongoose.Schema({
         type: String,
         guestView: Boolean,
     },
-    contact: [{
+    contact: {
         email: {
             type: String,
             guestView: Boolean,
@@ -31,8 +27,8 @@ const eventSchema = new mongoose.Schema({
             guestView: Boolean,
         },
         guestView: Boolean,
-    }],
-    links: [{
+    },
+    links: {
         website: {
             type: String,
             guestView: Boolean,
@@ -42,7 +38,7 @@ const eventSchema = new mongoose.Schema({
             guestView: Boolean,
         },
         guestView: Boolean,
-    }],
+    },
     information: {
         type: String,
         guestView: Boolean,
@@ -51,9 +47,10 @@ const eventSchema = new mongoose.Schema({
         type: String,
         guestView: Boolean,
     },
-    guidelines: [{
+    guidelines: {
         dress: {
             type: String,
+            enum: ['Casual', 'Smart Casual', 'Business Casual', 'Business Formal', 'Semi-Formal', 'Formal', 'Black Tie', 'White Tie'],
             guestView: Boolean,
         },
         etiquette: {
@@ -61,7 +58,7 @@ const eventSchema = new mongoose.Schema({
             guestView: Boolean,
         }, 
         guestView: Boolean,
-    }],
+    },
     restrictions: {
         type: String,
         guestView: Boolean,

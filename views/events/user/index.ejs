@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events</title>
+    <title>Document</title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>MeetUps</h1>
-    <h2>Current Events</h2>
+    <h2>My Events</h2>
         <% events.forEach((event) => { %>
             <a href="/events/<%= event._id %>" style="text-decoration: none; color: black;">
             <div id="eventPreview" style="margin: 10px 20px; border: 2px solid black; padding: 10px;">

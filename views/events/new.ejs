@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Event</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>MeetUps</h1>
+    <h2>New Event</h2>
+    <p><strong style="color:red">*</strong>Select the box "<input type="checkbox">" next to each category to allow guest view. If left unchecked, only Users can view.<strong style="color:red">*</strong></p>
+    <form action="/events/new" method="POST">
+        <div>
+            <label for="name"><strong style="color:red">*</strong>Name: </label>
+            <input type="text" id="name" name="name" placeholder="MeetnGreet" required>
+            <input type="checkbox" id="name.guestView" name="name.guestView">
+        </div>
+        <div>
+            <label for="description"><strong style="color:red">*</strong>Description: </label>
+            <textarea name="description" id="description" placeholder="Enter description of event here" required></textarea>
+            <input type="checkbox" id="description.guestView" name="description.guestView">
+        </div>
+        <div>
+            <label for="information">Information: </label>
+            <textarea name="information" id="information" placholder="Enter speakers, presenters, and/or persons of interest information here"></textarea>
+            <input type="checkbox" id="information.guestView" name="information.guestView">
+        </div>
+        <div>
+            <label for="location">Location: </label>
+            <textarea name="location" id="location" placeholder="Enter address of event and any additonal directions required here"></textarea>
+            
+            <input type="checkbox" id="location.guestView" name="location.guestView">
+        </div>
+        <div>
+            <label for="contact">Contact: </label>
+            <label for="contact.guestView">All Contacts</label>
+            <input type="checkbox" id="contact.guestView" name="contact.guestView">
+
+            <label for="contact.email">Email: </label>
+            <input type="email" id="contact.email" name="contact.email" placeholder="johndoe@gmail.com">
+            <input type="checkbox" id="contact.email.guestView" name="contact.email.guestView">
+
+            <label for="contact.phone">Phone: </label>
+            <input type="tel" id="contact.phone" name="contact.phone" placeholder="(012)345-6789">
+            <input type="checkbox" id="contact.phone.guestView" name="contact.phone.guestView">
+        </div>
+        <div>
+            <label for="links">Links: </label>
+            <label for="links.guestView">All Links</label>
+            <input type="checkbox" id="links.guestView" name="links.guestView">
+
+            <label for="links.website">Website: </label>
+            <input type="url" id="links.website" name="links.website" placeholder="https://www.website.com">
+            <input type="checkbox" id="links.website.guestView" name="links.website.guestView">
+
+            <label for="links.social">Social Media: </label>
+            <input type="url" id="links.social" name="links.social" placeholder="https://www.instagram.com/[username]">
+            <input type="checkbox" id="links.social.guestView" name="links.social.guestView">
+        </div>
+        <div>
+            <label for="supplies">Supplies: </label>
+            <textarea name="supplies" id="supplies" placeholder="Enter what if anything attendees should bring with them"></textarea>
+            <input type="checkbox" id="supplies.guestView" name="supplies.guestView">
+        </div>
+        <div>
+            <!-- decide how to form guidelines -->
+<!----------------------------------------------------------------------------------------------------------->
+            <label for="guidelines">Guidelines: </label>
+            <label for="guidelines.guestView">All Guidelines</label>
+            <input type="checkbox" id="guidelines.guestView" name="guidelines.guestView"><br>
+            <label for="guidelines.dress">Dress Code: </label>
+            <select name="guidelines.dress" id="guidelines.dress">
+            <% ['Casual', 'Smart Casual', 'Business Casual', 'Business Formal', 'Semi-Formal', 'Formal', 'Black Tie', 'White Tie'].forEach(code => { %> 
+            <option value="<%= code %>"><%= code %></option>
+            <% }) %>
+            </select>
+            <input type="checkbox" id="guidelines.code.guestView" name="guidelines.code.guestView">
+            <br>
+            <label for="guidelines.etiquette">Etiquette: </label>
+            <textarea name="guidelines" id="guidelines"></textarea>
+            <input type="checkbox" id="guidelines.etiquette.guestView" name="guidelines.etiquette.guestView">
+        </div>
+        <!----------------------------------------------------------------------------------------------------------->
+        <div>
+            <label for="restrictions">Restrictions: </label>
+            <textarea name="restrictions" id="restrictions" placeholder="Enter restrictions for the Event"></textarea>
+            <input type="checkbox" id="restrictions.guestView" name="restrictions.guestView">
+        </div>
+        <button type="submit">Create Event</button>
+    </form>
+</body>
+</html>

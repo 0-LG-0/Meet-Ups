@@ -20,6 +20,7 @@ require('./db/connection')
 app.use(morgan('tiny'))
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended: true}))
+app.use(express.static('public'))
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -44,6 +45,6 @@ app.get('/', (req, res) => {
 
 app.use('/', authRoutes)
 app.use(authorization) 
-//app.use('/events', eventRoutes)
+app.use('/events', eventRoutes)
 
 app.listen(PORT, () => console.log('Running...'))
