@@ -6,7 +6,6 @@ const bcrypt = require('bcrypt')
 
 router.get('/events', async (req, res) => {
     try {
-        //req.body.guestView = req.body.guestView === 'on' ? true : false
         const foundEvents = await Event.find()
         res.render('events/index.ejs', { events: foundEvents })
     } catch (error) {
@@ -100,7 +99,6 @@ router.delete('/profile', async (req, res) => {
 })
 
 router.get('/profile', (req, res) => {
-    //await User.findById(req.session.user._id)
     res.render('auth/profile.ejs')
 })
 

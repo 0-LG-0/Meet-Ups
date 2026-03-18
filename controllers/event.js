@@ -5,7 +5,7 @@ const Event = require('../models/event')
 
 router.get('/', async (req, res) => {
     try {
-        //req.body.guestView = req.body.guestView === 'on' ? true : false
+        
         const foundEvents = await Event.find()
         res.render('events/index.ejs', { events: foundEvents })
     } catch (error) {
@@ -22,7 +22,7 @@ router.get('/new', (req, res) => {
 
 router.post('/new', async (req, res) => {
     try {
-    req.body.guestView = req.body.guestView === 'on' ? true : false
+    
     const newEvent = await new Event(req.body)
     newEvent.author = req.session.user.username
     await newEvent.save()
@@ -34,12 +34,9 @@ router.post('/new', async (req, res) => {
 
 router.get('/user', async (req, res) => {
     try {
-        //req.body.guestView = req.body.guestView === 'on' ? true : false 
         const foundEvents = await Event.find()
         const User = req.session.user
-        //if (foundEvents.author == req.session.user.username) {
         res.render('user/index.ejs', { events: foundEvents, User })
-        //}
     } catch (error) {
         res.status(500).json({ err: error.message })
     }
@@ -47,7 +44,6 @@ router.get('/user', async (req, res) => {
 
 router.get('/:eventId', async (req, res) => {
     try { 
-    ///req.body.guestView = req.body.guestView === 'on' ? true : false
     const foundEvent = await Event.findById(req.params.eventId)
     res.render('events/show.ejs', { event: foundEvent })
     } catch (error) {
@@ -56,7 +52,6 @@ router.get('/:eventId', async (req, res) => {
 })
 router.get('/user/:eventId', async (req, res) => {
     try { 
-    ///req.body.guestView = req.body.guestView === 'on' ? true : false
     const foundEvent = await Event.findById(req.params.eventId)
         console.log(`Name GuestView ${foundEvent.name.guestView}`)
 
