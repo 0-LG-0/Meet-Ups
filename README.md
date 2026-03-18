@@ -4,6 +4,8 @@
 
 Used to share events to potential attendees. Where other users can view any information provided. Including methods of contacting the hosts or organizers of the event for further information. 
 
+Deployed app: https://meet-ups.onrender.com/
+
     Technologies Used
 * JavaScript
 * HTML/EJS
