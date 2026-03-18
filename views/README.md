@@ -2,6 +2,7 @@
 
 # MeetUps
 
+Used to share events to potential attendees. Where other users can view any information provided. Including methods of contacting the hosts or organizers of the event for further information. 
 
     Technologies Used
 * JavaScript
