@@ -28,7 +28,7 @@ router.post('/new', async (req, res) => {
     await newEvent.save()
         res.redirect('/events/user')
     } catch (error) {
-        res.status(500).json({ err: error.message, err: error.stack })
+        res.status(500).json({ err: error.message })
     }
 })
 
@@ -47,7 +47,7 @@ router.get('/:eventId', async (req, res) => {
     const foundEvent = await Event.findById(req.params.eventId)
     res.render('events/show.ejs', { event: foundEvent })
     } catch (error) {
-        res.status(500).json({ Error: error.message, Error: error.stack })
+        res.status(500).json({ Error: error.message })
     }
 })
 router.get('/user/:eventId', async (req, res) => {
@@ -57,7 +57,7 @@ router.get('/user/:eventId', async (req, res) => {
 
     res.render('user/show.ejs', { event: foundEvent })
     } catch (error) {
-        res.status(500).json({ Error: error.message, Error: error.stack })
+        res.status(500).json({ Error: error.message })
     }
 })
 
