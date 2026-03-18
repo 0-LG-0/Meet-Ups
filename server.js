@@ -47,4 +47,6 @@ app.use('/', authRoutes)
 app.use(authorization) 
 app.use('/events', eventRoutes)
 
+
+
 app.listen(PORT, () => console.log('Running...'))

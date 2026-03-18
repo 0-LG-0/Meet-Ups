@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%= event.name %></title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>MeetUps</h1>
+    <h2>Edit <%= event.name %></h2>
+    <p><strong style="color:red">*</strong>Select the box "<input type="checkbox">" next to each category to allow guest view. If left unchecked, only Users can view.<strong style="color:red">*</strong></p>
+    <form action="/events/user/<%- event._id %>?_method=PUT" method="POST">
+        <div>
+            <label for="name"><strong style="color:red">*</strong>Name: </label>
+            <input type="text" id="name" name="name" placeholder="MeetnGreet" required value="<%= event.name %>"> 
+        </div>
+        <div>
+            <label for="description"><strong style="color:red">*</strong>Description: </label>
+            <textarea name="description" id="description" placeholder="Enter description of event here" required><%= event.description %></textarea>
+        </div>
+        <div>
+            <label for="information">Information: </label>
+            <textarea name="information" id="information" placholder="Enter speakers, presenters, and/or persons of interest information here"><%= event.information %></textarea>
+        </div>
+        <div>
+            <label for="location">Location: </label>
+            <textarea name="location" id="location" placeholder="Enter address of event and any additonal directions required here"><%= event.location %></textarea>
+        </div>
+        <div>
+            <label for="contact">Contact: </label>
+
+            <label for="contact.email">Email: </label>
+            <input type="email" id="contact.email" name="contact.email" placeholder="johndoe@gmail.com" value="<%= event.contact.email %>">
+            
+            <label for="contact.phone">Phone: </label>
+            <input type="tel" id="contact.phone" name="contact.phone" placeholder="(012)345-6789" value="<%= event.contact.phone %>">
+        </div>
+        <div>
+            <label for="links">Links: </label>
+            
+            <label for="links.website">Website: </label>
+            <input type="url" id="links.website" name="links.website" placeholder="https://www.website.com" value="<%= event.links.website %>">
+        
+            <label for="links.social">Social Media: </label>
+            <input type="url" id="links.social" name="links.social" placeholder="https://www.instagram.com/[username]" value="<%= event.links.social %>">
+        </div>
+        <div>
+            <label for="supplies">Supplies: </label>
+            <textarea name="supplies" id="supplies" placeholder="Enter what if anything attendees should bring with them"><%= event.supplies %></textarea>
+        </div>
+        <div>
+            <label for="guidelines">Guidelines: </label>
+            <br>
+            <label for="guidelines.dress">Dress Code: </label>
+            <select name="guidelines.dress" id="guidelines.dress">
+            <% ['Casual', 'Smart Casual', 'Business Casual', 'Business Formal', 'Semi-Formal', 'Formal', 'Black Tie', 'White Tie'].forEach(code => { %> 
+            <option value="<%= code %>"><%= code %></option>
+            <% }) %>
+            </select>
+            <br>
+            <label for="guidelines.etiquette">Etiquette: </label>
+            <textarea name="guidelines.etiquette" id="guidelines.etiquette"><%= event.guidelines.etiquette %></textarea>
+        </div>
+        <div>
+            <label for="restrictions">Restrictions: </label>
+            <textarea name="restrictions" id="restrictions" placeholder="Enter restrictions for the Event"><%= event.restrictions %></textarea>      
+        </div>
+        <button type="submit">Update Event</button>
+    </form>
+    <button onclick="history.back()">Back</button></body>
+</html>

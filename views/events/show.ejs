@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= event.name %></title>
+     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>MeetUps</h1>
+    <h1 id="showTitle">MeetUps</h1>
     <div id="showEvent">
-    <h2><%= event.name %></h2>
-    <p>Description: <%= event.description %></p>
-    <p>Information: <%= event.information %></p>
-    <p>Location: <%= event.location %></p>
-    <p>Contact:<br>E-mail: <%= event.contact.email %><br>Phone: <%= event.contact.phone %></p>
-    <p>Links:<br>Website: <a href="<%= event.links.website %>"><%= event.links.website %></a><br>Social: <a href="<%= event.links.social %>"><%= event.links.social %></a></p>
-    <p>Supplies: <%= event.supplies %></p>
+    <h2 id="showEventName"><%= event.name %></h2>
+    <p class="showInfo">Description: <%= event.description %></p>
+    <p class="showInfo">Information: <%= event.information %></p>
+    <p class="showInfo">Location: <%= event.location %></p>
+    <p class="showInfo">Contact:<br>E-mail: <%= event.contact.email %><br>Phone: <%= event.contact.phone %></p>
+    <p class="showInfo">Links:<br>Website: <a href="<%= event.links.website %>"><%= event.links.website %></a><br>Social: <a href="<%= event.links.social %>"><%= event.links.social %></a></p>
+    <p class="showInfo">Supplies: <%= event.supplies %></p>
     <!-- fix guidlines decide whether text area or seperate fields -->
-    <p>Guidelines: <%= event.guidelines %> <%= event.guidelines.dress %> <%= event.guidelines.etiquette %></p>
-    <p>Restrictions: <%= event.restrictions %></p>
+    <p class="showInfo">Guidelines: <br>Dress Code: <%= event.guidelines.dress %><br>Etiquette: <%= event.guidelines.etiquette %></p>
+    <p class="showInfo">Restrictions: <%= event.restrictions %></p>
     </div>
-</body>
+    <button onclick="history.back()">Back</button></body>
 </html>

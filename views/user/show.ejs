@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= event.name %></title>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>MeetUps</h1>
+    <div id="showEvent">
+    <h2><%= event.name %> <%= event.name.guestView %></h2>
+    <p>Description: <%= event.description %></p>
+    <p>Information: <%= event.information %></p>
+    <p>Location: <%= event.location %></p>
+    <p>Contact:<br>E-mail: <%= event.contact.email %><br>Phone: <%= event.contact.phone %></p>
+    <p>Links:<br>
+        Website: <a href="<%= event.links.website %>"><%= event.links.website %></a><br>
+        Social: <a href="<%= event.links.social %>"><%= event.links.social %></a>
+    </p>
+    <p>Supplies: <%= event.supplies %></p>
+    <!-- fix guidlines decide whether text area or seperate fields -->
+    <p>Guidelines: <br>
+        Dress Code: <%= event.guidelines.dress %><br>
+        Etiquette: <%= event.guidelines.etiquette %>
+    </p>
+    <p>Restrictions: <%= event.restrictions %></p>
+    </div>
+    <button><a href="/events/user/<%= event._id %>/edit">EDIT</a></button>
+    <form action="/events/user/<%= event._id %>?_method=DELETE" method="POST">
+        <button type="submit">DELETE</button>
+    </form>
+    <button><a href="/events/user">BACK</a></button>
+</body>
+</html>

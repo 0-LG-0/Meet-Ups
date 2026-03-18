@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events</title>
 </head>
-<body>
+<body id="eventsIndex">
     <%- include('../partials/_navbar.ejs') %>
-    <h1>MeetUps</h1>
-    <h2>Current Events</h2>
+    <div id="indexTitle">
+    <h1 id="inTitle">MeetUps</h1>
+    <h2 id="inSub">Current Events</h2>
+    </div>
         <% events.forEach((event) => { %>
-            <a href="/events/<%= event._id %>" style="text-decoration: none; color: black;">
-            <div id="eventPreview" style="margin: 10px 20px; border: 2px solid black; padding: 10px;">
-                <div style="display: flex; justify-content: space-between; ">
-                <h3><%= event.name %></h3>
-                <% if (user) { %>
-                <p><strong>Author: </strong><%= event.author %></p>
-                <% } %>
+            <a href="/events/<%= event._id %>" id="indexHref">
+            <div id="eventPreview" >
+                <div id="innerEPreview" >
+                <h3 id="iEName"><%= event.name %></h3>
+                <p id="indexAuthor"><strong>Author: </strong><%= event.author %></p>
                 </div>
-                <div style="text-align: center; border: 1px solid black">
+                <div id="indDescription" >
                 <p><%= event.description %></p>
                 </div>
             </div>

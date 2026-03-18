@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 </head>
-<body>
+<body id="home">
     <%- include('partials/_navbar.ejs') %>
-    <h1 id="title">Home</h1>
+    <h1 id="homeTitle">MeetUps</h1>
     
-    <p>Share events with potential attendees</p>
-    <!-- figure out what to do if user signed in -->
+    <h3>Share events with potential attendees</h3>
     <% if (user) { %>
         <p style="font-size: 18px;"><strong>User: <%= user.username %></strong> logged in</p>
     <% } %>
     <% if (!user) { %>
-    <div class="buttons">
-    <a id="sign-up" href="/sign-up">Sign Up</a>
-    <a id="sign-in" href="/sign-in">Sign In</a>
+    <div class="homeButtons">
+    <a class="authButton" href="/sign-up">Sign Up</a>
+    <a class="authButton" href="/sign-in">Sign In</a>
     </div>
     <% } %>
+    
+
 </body>
 </html>
